@@ -1,0 +1,53 @@
+<h1>mango comp workss</h1>
+
+<div>directives</div>
+
+<div>attribute directive - property binding
+<button type="button" [ngClass]="isColorChange?'buttonRed':'buttonWhite'" title="bigger">+</button>
+<button type="button" [ngStyle]="{'background-color':isColorChange?'blue':'green'}" title="bigger">+</button>
+
+
+
+<button type="button" [ngClass]="getTheClass()" title="bigger">+</button>
+<button type="button" [ngStyle]="{'background-color':gettheStyle()}" title="bigger">+</button>
+</div>
+
+<!-- ----------------- -->
+
+
+
+<div>structural directive - it will control element ( ngif, ngfor,ngswitch)
+
+    <p *ngIf="isColorChange;else isColorChangeElseLocalReff">
+paragraph to show ngif
+    </p>
+<ng-template #isColorChangeElseLocalReff>
+<p>SHowELsee</p>
+</ng-template>
+
+
+<div *ngFor="let arry of forNgFor; let i=index; trackBy:tackBy;">
+<p>
+    {{arry}}
+    {{i}}
+</p>
+</div>
+
+
+
+<div [ngSwitch]="forSwitch">  
+<p *ngSwitchCase=0>inSwitch 1</p>
+<p *ngSwitchCase=1>inSwitch 2</p>
+<p *ngSwitchCase=2>inSwitch 3</p>
+<p *ngSwitchDefault>inSwitch defaultt</p>
+</div>
+
+
+
+<div>
+    PIPES "https://angular.io/guide/pipes"
+    <p>{{uppercase | uppercase}}</p>
+    <p>{{date | date:"fullDate" | lowercase}}</p>
+</div>
+
+</div>

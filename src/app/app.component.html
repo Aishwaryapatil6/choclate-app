@@ -1,0 +1,12 @@
+<h1 id="two-way">Two-way Binding</h1>
+<div id="two-way-1">
+  <app-fivestar [(size)]="fontSizePx"></app-fivestar>
+  <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+  <label>FontSize (px): <input [(ngModel)]="fontSizePx"></label>
+</div>
+<br>
+<div id="two-way-2">
+  <h2>De-sugared two-way binding</h2>
+  <app-fivestar [size]="fontSizePx" (sizeChange)="fontSizePx"></app-fivestar>
+  <app-mango></app-mango>
+</div>
