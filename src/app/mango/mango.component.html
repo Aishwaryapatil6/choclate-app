@@ -3,13 +3,13 @@
 <div>directives</div>
 
 <div>attribute directive - property binding
-<button type="button" [ngClass]="isColorChange?'buttonRed':'buttonWhite'" title="bigger">+</button>
-<button type="button" [ngStyle]="{'background-color':isColorChange?'blue':'green'}" title="bigger">+</button>
+    <button type="button" [ngClass]="isColorChange?'buttonRed':'buttonWhite'" title="bigger">+</button>
+    <button type="button" [ngStyle]="{'background-color':isColorChange?'blue':'green'}" title="bigger">+</button>
 
 
 
-<button type="button" [ngClass]="getTheClass()" title="bigger">+</button>
-<button type="button" [ngStyle]="{'background-color':gettheStyle()}" title="bigger">+</button>
+    <button type="button" [ngClass]="getTheClass()" title="bigger">+</button>
+    <button type="button" [ngStyle]="{'background-color':gettheStyle()}" title="bigger">+</button>
 </div>
 
 <!-- ----------------- -->
@@ -19,35 +19,62 @@
 <div>structural directive - it will control element ( ngif, ngfor,ngswitch)
 
     <p *ngIf="isColorChange;else isColorChangeElseLocalReff">
-paragraph to show ngif
+        paragraph to show ngif
     </p>
-<ng-template #isColorChangeElseLocalReff>
-<p>SHowELsee</p>
-</ng-template>
+    <ng-template #isColorChangeElseLocalReff>
+        <p>SHowELsee</p>
+    </ng-template>
 
 
-<div *ngFor="let arry of forNgFor; let i=index; trackBy:tackBy;">
-<p>
-    {{arry}}
-    {{i}}
-</p>
-</div>
-
-
-
-<div [ngSwitch]="forSwitch">  
-<p *ngSwitchCase=0>inSwitch 1</p>
-<p *ngSwitchCase=1>inSwitch 2</p>
-<p *ngSwitchCase=2>inSwitch 3</p>
-<p *ngSwitchDefault>inSwitch defaultt</p>
-</div>
+    <div *ngFor="let arry of forNgFor; let i=index; trackBy:tackBy;">
+        <p>
+            {{arry}}
+            {{i}}
+        </p>
+    </div>
 
 
 
-<div>
-    PIPES "https://angular.io/guide/pipes"
-    <p>{{uppercase | uppercase}}</p>
-    <p>{{date | date:"fullDate" | lowercase}}</p>
-</div>
+    <div [ngSwitch]="forSwitch">
+        <p *ngSwitchCase=0>inSwitch 1</p>
+        <p *ngSwitchCase=1>inSwitch 2</p>
+        <p *ngSwitchCase=2>inSwitch 3</p>
+        <p *ngSwitchDefault>inSwitch defaultt</p>
+    </div>
+
+
+
+    <div>
+        PIPES "https://angular.io/guide/pipes"
+        <p>{{uppercase | uppercase}}</p>
+        <p>{{date | date:"fullDate" | lowercase}}</p>
+        <p>{{date|newPipe}}</p>
+        <p>{{date}}</p>
+        <p>datefunction: {{getDateForpipes(date)|newPipe}}</p>
+        <p>datefunction: {{getDateForpipes(date)|newPipe:getDateForpipes(date)}}</p>
+        <p>datefunction: {{getDateForpipes(date)|newPipe:getDateForpipes(date)}}</p>
+        
+     <!-- -------------------------    -->
+        
+        <div>Menu Card</div>
+        <ul *ngFor="let data of returnKeys(menu)">
+            <div>{{data}}</div>
+        <li *ngFor="let items of menu[data]">
+            <span>{{items.name}} -</span>
+            <span>{{items.price}}</span>
+        </li>
+    </ul>
+    <ul *ngFor="let data2 of returnKeys(menu2)">
+<div>{{data2}}</div>
+<li *ngFor="let items of menu2[data2],let i=index">
+<!-- <span>{{items | json}}</span> -->
+<span>{{returnKeys(items)}} - </span>
+<span>{{items[returnKeys(items)[0]]}} - </span>
+<span>{{returnKeys(items).length}}</span>
+<!-- <div>{{i}}</div> -->
+<!-- <span>{{items[1]}}</span> -->
+</li>
+    </ul>
+    </div>
 
 </div>

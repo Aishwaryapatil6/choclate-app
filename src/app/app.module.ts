@@ -9,12 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FivestarComponent } from './fivestar/fivestar.component';
 import { MangoComponent } from './mango/mango.component';
+import { ChoclatesComponent } from './choclates/choclates.component';
+import { ChildPartntComponent } from './child-partnt/child-partnt.component';
+import { NewPipePipe } from './pipes/new-pipe.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     FivestarComponent,
-    MangoComponent
+    MangoComponent,
+    ChoclatesComponent,
+    ChildPartntComponent,
+    NewPipePipe
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import { MangoComponent } from './mango/mango.component';
     FormsModule,
     CommonModule
   ],
-  providers: [],
+  providers: [NewPipePipe],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {  }
